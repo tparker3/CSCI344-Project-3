@@ -24,3 +24,8 @@
 .content .active {
   display: block;
 }
+
+.content {
+  font-family: Patrick Hand SC;
+  font-size: 25px;
+}

@@ -28,6 +28,20 @@ var main = function () {
   
   console.log("about to set up click handlers");
   setUpClickHandler($(".tabs .tab"));
+  
+  
+  var setUpAdd = function (add)) {
+    add.click(function () {
+      $("#tab1").append($("#user_input").val())
+      $("#tab1").append($("#user_input2").val())
+    };
+  };
+  
+  var setUpAllJSON = function (content) {
+    $("#tab1").append($("#all.json").val())
+  };
+  
+  $.getJSON("all.json", setUpAllJSON);
 }
 
 $(document).ready(main);
