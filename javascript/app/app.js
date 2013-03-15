@@ -1,19 +1,33 @@
 var main = function () {
-  //console.log("hello world!");
+  console.log("hello world!");
   
-  $.getJSON("all.json", function (todos) {
-    var i;
-    for (i = 0; i < todos.length; i++) {
-      console.log(todos[i]);
-    };
+  var setUpClickHandler = function (anchor) {
+    anchor.click(function () {
+      var target = $(this).attr("href");
     
-    todos.forEach(function (todo) {
-      console.log(todo.description);
-      todo.categories.forEach(function (category) {
-        console.log("  " + category);
-      });
-    });
-  });
+      $(".active").removeClass("active");
+      $(this).addClass("active");
+      $("#"+target).addClass("active");
+    
+      return false;
+    });    
+  };
+  
+  var setUpJSONTab = function (tab) {
+    var tab_a = $("<a>"+tab.title+"</a>").addClass("tab").attr("href", tab.title);
+    $(".tabs").append(tab_a);
+    
+    var content = $("<div>"+tab.content+"</div>").addClass("tab").attr("id",tab.title);
+    $(".content").append(content);
+    setUpClickHandler(tab_a);    
+  };
+
+  $.getJSON("tabs/tab1.json", setUpJSONTab);
+  $.getJSON("tabs/tab2.json", setUpJSONTab);  
+  $.getJSON("tabs/tab3.json", setUpJSONTab);  
+  
+  console.log("about to set up click handlers");
+  setUpClickHandler($(".tabs .tab"));
 }
 
 $(document).ready(main);

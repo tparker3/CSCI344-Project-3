@@ -4,13 +4,16 @@
 }
 
 .tabs .tab {
-  background: #ccc;
-  padding: 5px;
+  background: #c7b299;
+  padding: 10px;
+  color: #003663;
+  font-family: Homenaje;
+  font-size: 40px;
 }
 
 .tabs .active {
   background: white;
-  border: 1px solid black;
+  border: 3px solid #003663;
   border-bottom-width: 0;
 }
 
