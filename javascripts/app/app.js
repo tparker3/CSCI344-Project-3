@@ -27,12 +27,23 @@ var main = function () {
     var i;
     for (i = 0; i < todos.length; i++) {
       console.log (todos[i])
-      $("#tab1").append ("<p>" + todos[i].description + "</p>"); 
-      $("#tab2").append ("<p>" + todos[i].categories + "</p>");
+      $("#tab1").append ("<p>" + todos[i].description + ": " + todos[i].categories + "</p>"); 
+      $("#tab2").append ("<p>" + $(".shopping.descriptions") + "</p>");
+     
+      
     };
     
   });
   
+  var arr = ["shopping", "groceries", "travel", "work", "home", "family"];
+  
+   jQuery.each(arr, function () {
+    console.log("category"),
+$("#tab2").append ("<p>" + $(".shopping.descriptions") + "</p>");
+
+
+});
+
   console.log("about to set up click handlers");
   setUpClickHandler($(".tabs .tab"));
   
@@ -40,9 +51,10 @@ var main = function () {
   
     $("#user_input_button").click(function () {
       console.log("AddMe");
-      $("#tab1").append ("<p>" + $("#user_input").val() + "</p>"); 
+      $("#tab1").append ("<p>" + $("#user_input").val() + ": " + $("#user_input2").val() +"</p>"); 
     });
   
+    
   
   
   var setUpAllJSON = function (content) {
